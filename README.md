@@ -3,31 +3,6 @@
 A Java calculator with interchangeable addition, subtraction, multiplication,
 division, and power strategies. The same `Calculator` switches operations at runtime.
 
-## Run in VS Code
-
-1. Open the **project folder** containing `pom.xml` in VS Code.
-2. Install **Extension Pack for Java** if needed. It includes Test Runner for Java.
-3. Let Java finish importing the Maven project and downloading JUnit dependencies.
-4. Open **Testing** in the activity bar and choose **Run All Tests**, or use the
-   run button next to a test method. Open `src/main/java/calculator/Main.java`
-   and use **Run Java** above `main` to run the demo.
-
-If this folder was already open before `pom.xml` was added, run
-**Java: Import Java Projects into Workspace** from the command palette and wait
-for Maven import to finish. A package error expecting `src.main.java.calculator`
-means VS Code is still treating the folder as an unmanaged Java project.
-Do not change the package declaration to match that incorrect source root.
-
-JUnit 5 comes from `pom.xml`; manually adding JUnit 4 JARs to `lib` is unnecessary
-and does not provide the `org.junit.jupiter` classes used by these tests.
-
-If VS Code still shows the old files or unresolved imports after import, run
-**Java: Clean Java Language Server Workspace** from the command palette and
-allow it to restart. Tests need the Java language server in **Standard** mode.
-
-JUnit discovery and Maven dependency setup follow the
-[official VS Code Java testing guide](https://code.visualstudio.com/docs/java/java-testing).
-
 ## Run on another computer
 
 Clone the repository, install JDK 17 or newer, and set `JAVA_HOME` to that JDK.
@@ -42,10 +17,6 @@ downloaded JUnit 4 JARs (`lib/`) are ignored and are not needed on another PC.
 ## UML
 
 ![Strategy pattern class diagram](docs/uml/strategy-pattern.svg)
-
-The [UML documentation](docs/uml/README.md) contains editable PlantUML sources,
-SVG/PNG exports, and a separate view of construction dependencies from `Main`.
-The two views keep the classes aligned and avoid crossed relationship lines.
 
 ## Structure
 
