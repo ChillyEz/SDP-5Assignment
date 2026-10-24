@@ -1,0 +1,59 @@
+@startuml strategy-pattern
+!include style.puml
+title Strategy Calculator\n<size:14>Class structure · package calculator</size>
+top to bottom direction
+
+class Main <<Client>> {
+    {static} + main(args: String[]): void
+}
+
+class Calculator <<Context>> {
+    - strategy: CalculationStrategy
+    + Calculator(strategy: CalculationStrategy)
+    + setStrategy(strategy: CalculationStrategy): void
+    + calculate(leftOperand: double, rightOperand: double): double
+}
+
+interface CalculationStrategy <<interface>> {
+    + calculate(leftOperand: double, rightOperand: double): double
+}
+
+together {
+    class AddStrategy {
+        + calculate(double, double): double
+    }
+    class SubtractStrategy {
+        + calculate(double, double): double
+    }
+    class MultiplyStrategy {
+        + calculate(double, double): double
+    }
+    class DivisionStrategy {
+        + calculate(double, double): double
+    }
+    class PowerStrategy {
+        + calculate(double, double): double
+    }
+}
+
+Main .down.> Calculator : creates / configures
+Calculator -down-> "1" CalculationStrategy : strategy / delegates
+CalculationStrategy <|.. AddStrategy
+CalculationStrategy <|.. SubtractStrategy
+CalculationStrategy <|.. MultiplyStrategy
+CalculationStrategy <|.. DivisionStrategy
+CalculationStrategy <|.. PowerStrategy
+
+' Invisible constraints enforce the order of the concrete strategy row.
+AddStrategy -[hidden]right-> SubtractStrategy
+SubtractStrategy -[hidden]right-> MultiplyStrategy
+MultiplyStrategy -[hidden]right-> DivisionStrategy
+DivisionStrategy -[hidden]right-> PowerStrategy
+
+legend bottom
+  Solid arrow: navigable association. Each Calculator holds one non-null strategy.
+  Dashed line with hollow triangle: interface realization.
+  Concrete method parameter names are omitted for compactness; types are exact.
+  Calculator is final. Main also creates all concrete strategies; see client-wiring.
+endlegend
+@enduml

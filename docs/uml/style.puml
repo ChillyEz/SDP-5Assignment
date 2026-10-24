@@ -1,0 +1,32 @@
+' Shared style. Smetana runs inside PlantUML; Graphviz is not required.
+!pragma layout smetana
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName SansSerif
+skinparam defaultFontSize 15
+skinparam shadowing false
+skinparam roundcorner 0
+skinparam linetype ortho
+skinparam nodesep 40
+skinparam ranksep 65
+skinparam padding 12
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+skinparam classBorderColor #334155
+skinparam classBorderThickness 1.5
+skinparam classBackgroundColor #FFFFFF
+skinparam classHeaderBackgroundColor #EFF6FF
+skinparam ArrowColor #475569
+skinparam ArrowThickness 1.5
+skinparam ArrowFontSize 13
+skinparam packageStyle rectangle
+skinparam packageBorderColor #CBD5E1
+skinparam packageBackgroundColor #F8FAFC
+skinparam packageFontColor #64748B
+skinparam packageFontSize 13
+skinparam titleFontSize 24
+skinparam titleFontColor #0F172A
+skinparam legendBackgroundColor #F8FAFC
+skinparam legendBorderColor #CBD5E1
+skinparam legendFontSize 13
+hide circle
+hide empty fields
