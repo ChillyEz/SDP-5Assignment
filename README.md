@@ -28,29 +28,6 @@ allow it to restart. Tests need the Java language server in **Standard** mode.
 JUnit discovery and Maven dependency setup follow the
 [official VS Code Java testing guide](https://code.visualstudio.com/docs/java/java-testing).
 
-## Run from PowerShell
-
-Requires JDK 17 or newer. Maven Wrapper downloads Maven on its first run;
-Maven downloads JUnit and build plugins. Internet access is needed for this setup.
-
-```powershell
-.\mvnw.cmd test
-java -cp target/classes calculator.Main
-```
-
-If `JAVA_HOME` is unset or points to the wrong installation, set it to your JDK
-directory before running the commands. For the JDK currently installed on this PC:
-
-```powershell
-$env:JAVA_HOME = 'C:\Program Files\Java\jdk-26.0.1'
-.\mvnw.cmd test
-& "$env:JAVA_HOME\bin\java.exe" -cp target/classes calculator.Main
-```
-
-On macOS/Linux, use `sh ./mvnw test` (this also works if the script's executable
-bit was not preserved when committing from Windows). An existing Maven installation can run
-`mvn test`. Compilation targets Java 17 regardless of the newer JDK used to build.
-
 ## Run on another computer
 
 Clone the repository, install JDK 17 or newer, and set `JAVA_HOME` to that JDK.
